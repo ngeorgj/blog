@@ -4,11 +4,11 @@ Finished a basic full blog app with front end and back end.
 
 What i've learned?
 
-Flask
-SQL Alchemy
-HTML + CSS + Bootstrap
+- Flask
+- SQL Alchemy
+- HTML + CSS + Bootstrap
 
-SQLITE3 [syntax and querys]
+- SQLITE3 [syntax and querys]
 
 UP AND RUNNING!
 
