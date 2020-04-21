@@ -19,11 +19,6 @@ class BlogPost(db.Model):
     def __repr__(self):
         return 'Blog post ' + str(self.id)
 
-
-db.drop_all()
-db.create_all()
-
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -31,18 +26,23 @@ def home():
 
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():
+    all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
+    return render_template('posts.html', posts=all_posts)
+
+
+@app.route('/posts/new', methods=['GET', 'POST'])
+def new_post():
     if request.method == 'POST':
         post_title = request.form['title']
         post_author = request.form['author']
         post_content = request.form['content']
-        new_post = BlogPost(title=post_title, content=post_content, author=post_author)
-        db.session.add(new_post)
+        new = BlogPost(title=post_title, content=post_content, author=post_author)
+        db.session.add(new)
         db.session.commit()
         return redirect('/posts')
 
-    else:
-        all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
-        return render_template('posts.html', posts=all_posts)
+    elif request.method == 'GET':
+        return render_template('newpost.html')
 
 
 @app.route('/posts/delete/<int:id>')
@@ -65,7 +65,6 @@ def edit(id):
 
     elif request.method == 'GET':
         return render_template('edit.html', post=post)
-
 
     return redirect('/posts')
 
