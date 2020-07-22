@@ -1,17 +1,15 @@
 # BLOG
 
-Finished a basic full blog app with front end and back end.
+Finished a basic full blog app with front end and back end. For learning Purposes.
 
 What i've learned?
 
 - Flask
 - SQL Alchemy
 - HTML + CSS + Bootstrap
+- SQLite3
 
-- SQLITE3 [syntax and querys]
+--------------------
 
-UP AND RUNNING!
-
-Course link: https://www.youtube.com/watch?v=3mwFC4SHY-Y
 
 
